@@ -12,6 +12,7 @@
 #include "raylib.h"
 #include "raylib.h"
 #include <cstdio> // para sprintf
+#include <iostream>
 
 enum Direcao {
     BAIXO,
