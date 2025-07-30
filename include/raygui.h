@@ -330,6 +330,7 @@
 
 #ifndef RAYGUI_H
 #define RAYGUI_H
+#include <iostream>
 
 #define RAYGUI_VERSION_MAJOR 4
 #define RAYGUI_VERSION_MINOR 5
