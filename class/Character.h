@@ -1,9 +1,10 @@
-#ifndef PERSON_H_INCLUDED
-#define PERSON_H_INCLUDED
+#ifndef CHARACTER_H_INCLUDED
+#define CHARACTER_H_INCLUDED
 
 #include <iostream>
 #include <string>
-#include <vector>  
+#include <vector> 
+#include "Item.h"
 
 class Character{
     public:
@@ -12,7 +13,22 @@ class Character{
 
         Character(std::string name)
             :
-            name(name), posx(1), posy(1), health(100), mana(50), strength(20), exp(0), level(1) {}
+            name(name), posx(1), posy(1), health(1000), mana(50), strength(20), exp(0), level(1) {}
+
+        void receiveItem(Item* item){
+            if(inventory.size() < 10) {
+                inventory.push_back(item);
+            }else{
+                std::cout << "Not possible (Full Inventory)" << '\n';
+            }
+        }
+
+        void exibirInventario() const {
+            std::cout << "Inventory from " << name << ":\n";
+            for (Item* item : inventory) {
+                item->show();
+            }
+    }
 
         void walk(int x, int y, int map[10][10]){
             if(map[posx+x][posy+y] != 1) posx+=x, posy+=y;
@@ -46,14 +62,17 @@ class Character{
             }
 
         }
+
         
         void startFight(Character enemy){
             bool fight = true;
             short option = 0;
 
+
             while(fight){
                 do{
-                    std::cout << "Select an action\n" << "1 - Melee Atack\n" << "2 - Spell Atack\n" << "3 - Give up\n";
+
+                    std::cout << "Select an action\n" << "1 - Melee Atack\n" << "2 - Spell Atack\n";
                     std::cin >> option;
 
                     switch (option){
@@ -62,13 +81,16 @@ class Character{
                         attack(enemy);
                         break;
                     
+                    case 2:
+                        break;
+
                     default:
-                    std::cout << "Invalid option\n";
+                        std::cout << "Invalid option\n";
                         break;
                     }
-
-                }while(option <= 0 || option > 3);
-
+                    
+                }while(option <= 0 || option > 2);
+                
                 if(enemy.health == 0 || health == 0) fight=false;
             }
         }
@@ -76,6 +98,8 @@ class Character{
         //terminar os getters e setter
         short getExp() const {return exp;}
         short getMana() const {return mana;}
+        short getLevel() const {return level;}
+        void setHealth(int newHealth){health = newHealth;}
         void setLevel(int NewLevel){level = NewLevel;}
 
 
@@ -85,6 +109,7 @@ class Character{
         short strength;
         short exp;
         short level;
+        std::vector<Item*> inventory;
         
         void receiveExp(int enemyExp){
             exp+=enemyExp;
@@ -121,10 +146,10 @@ class Character{
         void newLevel(){
             level++;
             health+=20;
-            mana+=10;
+            mana+=50;
             exp=0;
             std::cout << name << " leveled up!";
         }
 };
 
-#endif PERSON_H_INCLUDED
+#endif CHARACTER_H_INCLUDED

@@ -24,12 +24,20 @@ int main(){
     Character enemy1("Estrupilson jr.");
     Character enemy2("FilhoDAputa");
 
-    Player.startFight(enemy1);
-    Player.startFight(enemy2);
     Player.receiveItem(new Weapon("GodSlayer", 500));
+    Player.receiveItem(new Armor("Armor of god", 1000));
+    Player.receiveItem(new Weapon("GodSlayer", 500));
+    Player.receiveItem(new Armor("Armor of god", 1000));
+    Player.receiveItem(new Weapon("GodSlayer", 500));
+    Player.receiveItem(new Armor("Armor of god", 1000));
+    Player.receiveItem(new Weapon("GodSlayer", 500));
+    Player.receiveItem(new Armor("Armor of god", 1000));
+    Player.receiveItem(new Weapon("GodSlayer", 500));
+    Player.receiveItem(new Armor("Armor of god", 1000));
+    Player.receiveItem(new Weapon("GodSlayer", 500));
+
 
     Player.exibirInventario();
 
-    std::cout << Player.getLevel() << "-" << Player.getExp() << '\n';
     return 0;
 }
