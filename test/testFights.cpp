@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\class\Character.h"
-#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\class\Item.h"
-#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\class\Weapon.h"
-#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\class\Armor.h"
+#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\include\Character.h"
+#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\include\Item.h"
+#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\include\Weapon.h"
+#include "D:\CODES\RpgDeTurnoFoda\RpgDeTurnoBasico\include\Armor.h"
 
 // int map[10][20] = {
 //     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
