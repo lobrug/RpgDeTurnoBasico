@@ -21,8 +21,9 @@ enum Direcao {
 };
 
 int main() {
-    const int screenWidth = 800;
-    const int screenHeight = 600;
+    int screenWidth = GetScreenWidth();
+    int screenHeight = GetScreenHeight();
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, "Boneco com animações por direção");
     SetTargetFPS(60);
 
@@ -96,7 +97,7 @@ int main() {
         // Desenho
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawTexture(frames[frameAtual], (int)pos.x, (int)pos.y, WHITE);
+        DrawTextureEx(frames[frameAtual], pos, 0.0f, 4.0f, WHITE);
         EndDrawing();
     }
 
